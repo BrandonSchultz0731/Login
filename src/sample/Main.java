@@ -26,6 +26,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+
        primaryStage.setTitle("JavaFX Welcome");
 
         GridPane grid = new GridPane();
@@ -46,7 +47,6 @@ public class Main extends Application {
       btn.setOnAction(new EventHandler<ActionEvent>() {
         @Override
         public void handle(ActionEvent event) {
-          actiontarget.setFill(Color.FORESTGREEN);
           actiontarget.setText("Sign in successful");
         }
       });
@@ -54,8 +54,11 @@ public class Main extends Application {
         Scene scene = new Scene(grid, 300, 275);
         primaryStage.setScene(scene);
 
+      scene.getStylesheets().add("Login.css");
+
       Text scenetitle = new Text("Welcome");
-      scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
+      scenetitle.setId("welcome-text");
+      actiontarget.setId("actiontarget");
       grid.add(scenetitle, 0, 0, 2, 1);
 
       Label userName = new Label("User Name:");
